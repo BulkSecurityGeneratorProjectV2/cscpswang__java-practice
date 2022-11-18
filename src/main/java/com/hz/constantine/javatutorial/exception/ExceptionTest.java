@@ -6,6 +6,7 @@ package com.hz.constantine.javatutorial.exception;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.nio.file.Files;
 
 import org.apache.commons.collections.functors.IdentityPredicate;
 import org.slf4j.LoggerFactory;
@@ -65,7 +66,7 @@ public class ExceptionTest {
         String line = null;
 
         try {
-            File file = File.createTempFile("tmp", "tmp.txt");
+            File file = Files.createTempFile("tmp", "tmp.txt").toFile();
             input = new RandomAccessFile(file, "r");
             while ((line = input.readLine()) != null) {
                 System.out.println(line);
